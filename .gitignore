@@ -1,0 +1,23 @@
+# Environment files
+.env
+*.env
+
+# Python virtual environments
+venv/
+**/venv/
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Django
+db.sqlite3
+staticfiles/
+
+# Your local database file
+pathfind_db
+*.db
