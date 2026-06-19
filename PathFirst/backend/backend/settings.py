@@ -170,5 +170,8 @@ REST_FRAMEWORK = {
 }
 from decouple import config
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', cast=bool)
+SECRET_KEY = config(
+    'SECRET_KEY',
+    default='django-insecure-^0(%&6(wpn^u%em7u^^xu^!j@d^1rf9&++h^%_qc^+ob$nqb8h'
+)
+DEBUG = config('DEBUG', default=False, cast=bool)
