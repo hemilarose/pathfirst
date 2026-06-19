@@ -1,1 +1,1 @@
-web: gunicorn pathfirst.wsgi --log-file -
+web: gunicorn PathFirst.wsgi --log-file -
