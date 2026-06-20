@@ -151,6 +151,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     config('FRONTEND_URL', default='http://localhost:5173'),
 ]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://pathfirst-production.up.railway.app',
+]
 from datetime import timedelta
 SIMPLE_JWT={
     'ACCESS_TOKEN_LIFETIME':timedelta(days=7),
