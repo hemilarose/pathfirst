@@ -1,3 +1,5 @@
+
+
 import axios from 'axios'
 
 const api = axios.create({
@@ -9,7 +11,6 @@ api.interceptors.request.use(cfg => {
   if (token) cfg.headers.Authorization = `Bearer ${token}`
   return cfg
 })
-
 export const auth = {
   register: (data) => api.post('/auth/register/', data),
   login: (data) => api.post('/auth/login/', data),
