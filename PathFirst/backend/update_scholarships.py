@@ -1,4 +1,6 @@
 ﻿import os, django
+from datetime import date
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 django.setup()
 from scholarships.models import Scholarship
@@ -25,16 +27,19 @@ created_count = 0
 updated_count = 0
 
 for key, link, tamil_desc in updates:
-    # update_or_create fetches the record if it exists, or handles creation if it is missing
     obj, created = Scholarship.objects.update_or_create(
         name=key,
         defaults={
             'apply_link': link,
             'description_tamil': tamil_desc,
-            'description': 'English description placeholder', # Adjust field to match your Model setup
-            'community': 'OC',                                # Adjust to match database-acceptable values
-            'stream': 'Science',                               # Adjust to match database-acceptable values
-            'family_income': 'Any income'                      # Adjust to match database-acceptable values
+            'description': 'English description placeholder',
+            'community': 'OC',
+            'stream': 'Science',
+            'income_limit': 'Any income',   # Fixed field name
+            'provider': 'Government',       # Added required fields from your model
+            'amount': 'Varies',
+            'deadline': date(2026, 12, 31),
+            'documents_required': 'Income certificate, Community certificate'
         }
     )
     if created:
