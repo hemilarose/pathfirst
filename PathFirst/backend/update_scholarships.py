@@ -21,13 +21,27 @@ updates = [
     ("National Means", "https://scholarships.gov.in", "பொருளாதாரத்தில் நலிவடைந்த குடும்பத்தைச் சேர்ந்த திறமையான மாணவர்களுக்கான தேசிய உதவித்தொகை."),
 ]
 
-updated = 0
+created_count = 0
+updated_count = 0
+
 for key, link, tamil_desc in updates:
-    qs = Scholarship.objects.filter(name__icontains=key)
-    if qs.exists():
-        qs.update(apply_link=link, description_tamil=tamil_desc)
-        print(key, "UPDATED")
-        updated += 1
+    # update_or_create fetches the record if it exists, or handles creation if it is missing
+    obj, created = Scholarship.objects.update_or_create(
+        name=key,
+        defaults={
+            'apply_link': link,
+            'description_tamil': tamil_desc,
+            'description': 'English description placeholder', # Adjust field to match your Model setup
+            'community': 'OC',                                # Adjust to match database-acceptable values
+            'stream': 'Science',                               # Adjust to match database-acceptable values
+            'family_income': 'Any income'                      # Adjust to match database-acceptable values
+        }
+    )
+    if created:
+        print(f"{key} -> CREATED")
+        created_count += 1
     else:
-        print(key, "NOT FOUND")
-print("Done!", updated, "updated.")
+        print(f"{key} -> UPDATED")
+        updated_count += 1
+
+print(f"Done! {created_count} created, {updated_count} updated.")
