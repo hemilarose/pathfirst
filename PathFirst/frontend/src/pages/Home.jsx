@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../App'
-import { useLang } from '../context/LanguageContext'
+import { useLang } from '../Context/LanguageContext'
 
 export default function Home() {
   const { user } = useAuth()

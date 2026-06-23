@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { scholarships } from '../api'
-import { useLang } from '../context/LanguageContext'
+import { useLang } from '../Context/LanguageContext'
 
 export default function ScholarshipFinder() {
   const [data, setData] = useState([])

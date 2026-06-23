@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { checklist } from '../api'
 import { useAuth } from '../App'
-import { useLang } from '../context/LanguageContext'
+import { useLang } from '../Context/LanguageContext'
 
 export default function Checklist() {
   const { user } = useAuth()
