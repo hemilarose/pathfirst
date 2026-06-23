@@ -35,9 +35,9 @@ for key, link, tamil_desc in updates:
             'description': 'English description placeholder',
             'community': 'OC',
             'stream': 'Science',
-            'income_limit': 'Any income',   # Fixed field name
-            'provider': 'Government',       # Added required fields from your model
-            'amount': 'Varies',
+            'income_limit': 'Any income',   
+            'provider': 'Government',       
+            'amount': 0,                     # Fixed: Changed from 'Varies' to a valid integer 
             'deadline': date(2026, 12, 31),
             'documents_required': 'Income certificate, Community certificate'
         }
