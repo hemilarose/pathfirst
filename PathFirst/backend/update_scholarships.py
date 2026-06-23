@@ -35,9 +35,9 @@ for key, link, tamil_desc in updates:
             'description': 'English description placeholder',
             'community': 'OC',
             'stream': 'Science',
-            'income_limit': 'Any income',   
+            'income_limit': 9999999,        # Fixed: Changed from 'Any income' to a large integer
             'provider': 'Government',       
-            'amount': 0,                     # Fixed: Changed from 'Varies' to a valid integer 
+            'amount': 0,                     
             'deadline': date(2026, 12, 31),
             'documents_required': 'Income certificate, Community certificate'
         }
