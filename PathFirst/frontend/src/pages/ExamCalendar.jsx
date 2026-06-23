@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { exams } from '../api'
-import { useLang } from '../c=Context/LanguageContext'
+import { useLang } from '../Context/LanguageContext'
 
 export default function ExamCalendar() {
   const [data, setData] = useState([])
