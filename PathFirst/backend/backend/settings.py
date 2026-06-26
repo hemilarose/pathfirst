@@ -49,16 +49,15 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -149,10 +148,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOWED_ORIGINS = [
-    config('FRONTEND_URL', default='http://localhost:5173'),
-    "https://pathfirst-2qbxlt5k1-hemilarose28csa-3262s-projects.vercel.app",
-]
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -183,3 +180,5 @@ SECRET_KEY = config(
     default='django-insecure-^0(%&6(wpn^u%em7u^^xu^!j@d^1rf9&++h^%_qc^+ob$nqb8h'
 )
 DEBUG = config('DEBUG', default=False, cast=bool)
+print("CORS_ALLOWED_ORIGINS:", CORS_ALLOWED_ORIGINS if 'CORS_ALLOWED_ORIGINS' in globals() else None)
+print("CORS_ALLOW_ALL_ORIGINS:", CORS_ALLOW_ALL_ORIGINS if 'CORS_ALLOW_ALL_ORIGINS' in globals() else False)
