@@ -148,7 +148,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://vercel.app",
+    "http://localhost:3000",  
+    "http://127.0.0.1:3000",
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 
@@ -180,5 +185,4 @@ SECRET_KEY = config(
     default='django-insecure-^0(%&6(wpn^u%em7u^^xu^!j@d^1rf9&++h^%_qc^+ob$nqb8h'
 )
 DEBUG = config('DEBUG', default=False, cast=bool)
-print("CORS_ALLOWED_ORIGINS:", CORS_ALLOWED_ORIGINS if 'CORS_ALLOWED_ORIGINS' in globals() else None)
-print("CORS_ALLOW_ALL_ORIGINS:", CORS_ALLOW_ALL_ORIGINS if 'CORS_ALLOW_ALL_ORIGINS' in globals() else False)
+
