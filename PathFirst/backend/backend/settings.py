@@ -148,17 +148,19 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ALLOW_ALL_ORIGINS = False
+
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://pathfirst-e1n9do879-hemilarose28csa-3262s-projects.vercel.app",
+]
+CSRF_TRUSTED_ORIGINS = [
+
+    "http://localhost:5173",
+    "https://pathfirst-production.up.railway.app",
     "https://pathfirst-e1n9do879-hemilarose28csa-3262s-projects.vercel.app",
 ]
 
-CORS_ALLOW_CREDENTIALS = True
-
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://pathfirst-production.up.railway.app',
-    'https://pathfirst-e1n9do879-hemilarose28csa-3262s-projects.vercel.app',
-]
 from datetime import timedelta
 SIMPLE_JWT={
     'ACCESS_TOKEN_LIFETIME':timedelta(days=7),
